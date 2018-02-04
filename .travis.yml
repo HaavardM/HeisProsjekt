@@ -1,0 +1,4 @@
+language: c
+script: bash build_test.sh
+notifications:
+    email: false
