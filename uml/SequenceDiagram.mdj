@@ -1957,9 +1957,9 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 411,
+													"left": 394,
 													"top": 231,
-													"width": 78,
+													"width": 112,
 													"height": 13,
 													"autoResize": false,
 													"alpha": -1.2793404497484744,
@@ -1969,7 +1969,7 @@
 													},
 													"edgePosition": 1,
 													"underline": false,
-													"text": "5 : NextOrder",
+													"text": "5 : NextOrder = 1",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -3997,9 +3997,9 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 410,
+													"left": 393,
 													"top": 527,
-													"width": 85,
+													"width": 119,
 													"height": 13,
 													"autoResize": false,
 													"alpha": -1.4711286644028423,
@@ -4009,7 +4009,7 @@
 													},
 													"edgePosition": 1,
 													"underline": false,
-													"text": "17 : NextOrder",
+													"text": "17 : NextOrder = 3",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -5412,7 +5412,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFhawQMXhA0StM="
 									},
-									"name": "NextOrder",
+									"name": "1",
 									"source": {
 										"$ref": "AAAAAAFhawTZuxCPKrE="
 									},
@@ -5421,6 +5421,7 @@
 									},
 									"visibility": "public",
 									"messageSort": "reply",
+									"assignmentTarget": "NextOrder",
 									"isConcurrentIteration": false
 								},
 								{
@@ -5616,7 +5617,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFhawQMXhA0StM="
 									},
-									"name": "NextOrder",
+									"name": "3",
 									"source": {
 										"$ref": "AAAAAAFhawTZuxCPKrE="
 									},
@@ -5625,6 +5626,7 @@
 									},
 									"visibility": "public",
 									"messageSort": "reply",
+									"assignmentTarget": "NextOrder",
 									"isConcurrentIteration": false
 								},
 								{
