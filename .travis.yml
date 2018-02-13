@@ -1,7 +1,7 @@
 language: c
 sudo: required
-services:
-    - docker
-script: docker build .
+before_install:
+    - sudo bash install_dependencies.sh
+script: bash build_test.sh
 notifications:
     email: false
