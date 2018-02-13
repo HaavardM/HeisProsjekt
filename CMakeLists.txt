@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
 project(heisprosjekt C)
 
 file(GLOB heisprosjekt_SRC "src/*.c")
-file(GLOB elevator_driver_SRC "src/elevator_driver/*.c")
+file(GLOB elevator_driver_SRC "src/elevator_lib/*.c")
 
 execute_process(COMMAND git submodule update --init)
 
