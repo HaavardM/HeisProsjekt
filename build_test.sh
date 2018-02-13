@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir build
 cd build
+set -e
 cmake ..
 make
-set -e
 ./heisprosjekt_test
