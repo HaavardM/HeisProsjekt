@@ -1,4 +1,4 @@
 language: c
-script: bash build_test.sh
+script: bash install_dependencies && build_test.sh
 notifications:
     email: false
