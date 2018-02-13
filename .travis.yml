@@ -1,4 +1,5 @@
 language: c
+sudo: required
 before_install:
     - bash install_dependencies.sh
 script: bash build_test.sh
