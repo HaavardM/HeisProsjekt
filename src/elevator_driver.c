@@ -45,10 +45,10 @@ emergency_button_status_e is_emergency_button_pressed(void) {
 }
 
 void clear_elevator_light(int floor) {
-    elev_set_button_lamp(BUTTON_COMMAND, floor-1, 0);
+    elev_set_button_lamp(BUTTON_COMMAND, floor, 0);
 }
 void set_elevator_light(int floor) {
-    elev_set_button_lamp(BUTTON_COMMAND, floor-1,1);
+    elev_set_button_lamp(BUTTON_COMMAND, floor,1);
 }
 void update_floor_driver(void) {
     for(int i = 0; i<4; i++) {
