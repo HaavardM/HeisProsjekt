@@ -5,6 +5,8 @@ project(heisprosjekt C)
 file(GLOB heisprosjekt_SRC "src/*.c")
 file(GLOB elevator_driver_SRC "src/elevator_lib/*.c")
 
+set(CMAKE_C_FLAGS "-std=c99")
+
 execute_process(COMMAND git submodule update --init)
 
 include_directories(include Unity/src)
