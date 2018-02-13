@@ -5,4 +5,4 @@ cd comedilib
 ./autogen.sh
 ./configure --with-udev-hotplug=/lib --sysconfdir=/etc
 make
-make install
+sudo make install
