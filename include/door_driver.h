@@ -5,7 +5,7 @@
 #ifndef HEISPROSJEKT_DOOR_DRIVER_H
 #define HEISPROSJEKT_DOOR_DRIVER_H
 
-
+typedef enum {DOOR_CLOSED = 0, DOOR_OPEN = 1 } door_state_e;
 
 /** Opens door
 */
@@ -19,6 +19,6 @@ void close_door(void);
  * @return 1 if door is open
  * @return 0 if door is closed
  */
-int is_door_open(void);
+door_state_e is_door_open(void);
 
 #endif //HEISPROSJEKT_DOOR_DRIVER_H
