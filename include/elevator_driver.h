@@ -50,5 +50,9 @@ emergency_button_status_e is_emergency_button_pressed(void);
  */
 void clear_elevator_light(int floor);
 
+/**
+ * Updates the module
+ */
+void update_floor_driver(void);
 
 #endif //HEISPROSJEKT_ELEVATOR_DRIVER_H
