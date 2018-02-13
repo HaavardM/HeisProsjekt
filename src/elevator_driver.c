@@ -50,12 +50,13 @@ void clear_elevator_light(int floor) {
 void set_elevator_light(int floor) {
     elev_set_button_lamp(BUTTON_COMMAND, floor-1,1);
 }
-void update_floor_driver(int floor) {
-    if (elev_get_button_signal(BUTTON_COMMAND, floor) == 1) {
-        set_elevator_light(floor);
-    } else {
-        clear_elevator_light(floor);
+void update_floor_driver(void) {
+    for(int i = 0; i<4; i++) {
+        if (elev_get_button_signal(BUTTON_COMMAND, i) == 1) {
+            set_elevator_light(i);
+        }
     }
+
 
 }
 
