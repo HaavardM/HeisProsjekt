@@ -5,9 +5,9 @@ Heisprosjekt i C
 
 ## How to build:
 
-Install docker and run:
+Install docker and docker-compose and run:
 ```
-docker build .
+docker-compose up
 ```
 to build and test code
 
