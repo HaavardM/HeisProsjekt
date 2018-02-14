@@ -14,9 +14,9 @@ RUN apt-get update -qq && apt-get install -yqq \
     bison
     
 
-RUN mkdir -p /opt/elevator_project
-COPY ./ /opt/elevator_project/HeisProsjekt
-WORKDIR /opt/elevator_project/HeisProsjekt
+COPY ./ /HeisProsjekt
+WORKDIR /HeisProsjekt
 RUN /bin/bash install_dependencies.sh
-RUN /bin/bash build_test.sh
+WORKDIR /
+RUN rm -rf /HeisProsjekt
 
