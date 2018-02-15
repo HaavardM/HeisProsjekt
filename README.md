@@ -5,9 +5,15 @@ Heisprosjekt i C
 
 ## How to build:
 
-Install docker and docker-compose and run:
+Install docker and run:
 ```
-docker-compose up
+docker build .
 ```
 to build and test code
+
+## How to build parent image
+```
+docker build . -f docker/system/Dockerfile -t YOUR_TAG_HERE
+docker push YOUR_TAG_HERE
+```
 

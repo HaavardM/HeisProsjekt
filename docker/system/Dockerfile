@@ -14,9 +14,8 @@ RUN apt-get update -qq && apt-get install -yqq \
     bison
     
 
-COPY ./ /HeisProsjekt
-WORKDIR /HeisProsjekt
-RUN /bin/bash install_dependencies.sh
+COPY ./install_dependencies.sh /
 WORKDIR /
-RUN rm -rf /HeisProsjekt
+RUN /bin/bash install_dependencies.sh
+RUN rm install_dependencies.sh
 
