@@ -1,0 +1,34 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".idea",
+				"cmake-build-debug"
+			],
+			"path": "."
+		}
+	], 
+	"build_systems":
+	[
+		{
+			"name": "Docker build Heisprosjekt",
+			"shell": true,
+			"shell_cmd": "docker build ${project_path}",
+			"working_dir": "$(project_path}" 
+		}, 
+		{
+			"name": "Local build, build_test.sh",
+			"shell": true,
+			"shell_cmd": "bash build_test.sh",
+			"working_dir": "${project_path}"
+		}
+	], 
+	"settings":
+	{
+		"tab_size": 4,
+		"translate_tabs_to_spaces": true
+	}
+
+}
