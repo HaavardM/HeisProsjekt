@@ -11,3 +11,9 @@ docker build .
 ```
 to build and test code
 
+## How to build parent image
+```
+docker build . -f docker/system/Dockerfile -t YOUR_TAG_HERE
+docker push YOUR_TAG_HERE
+```
+
