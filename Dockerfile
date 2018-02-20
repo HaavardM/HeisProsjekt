@@ -3,4 +3,4 @@ MAINTAINER Håvard Skåra Mellbye
 
 COPY ./ /HeisProsjekt
 WORKDIR /HeisProsjekt
-RUN /bin/bash ./build_test.sh
+RUN /bin/bash ./build.sh
