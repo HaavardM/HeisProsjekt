@@ -29,5 +29,6 @@ int main(int argc, char** argv) {
     UNITY_BEGIN();
     RUN_TEST(test_sampletest);
     RUN_TEST(test_to_moving_up_transitions);
+    RUN_TEST(test_to_moving_down_transitions);
     return UNITY_END();
 }
