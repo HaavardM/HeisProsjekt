@@ -10,11 +10,11 @@ fsm_state_e next_state;
 ///Contains all state functions and transition functions
 fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] = 
 {
-    { state_moving_up_do   , NULL, NULL, NULL, NULL },
-    { state_moving_up_entry, NULL, NULL, NULL, NULL },
-    { state_moving_up_entry, NULL, NULL, NULL, NULL },
-    { state_moving_up_entry, NULL, NULL, NULL, NULL },
-    { state_moving_up_entry, NULL, NULL, NULL, NULL }
+    { state_moving_up_do   , state_moving_down_entry, NULL, NULL, NULL },
+    { state_moving_up_entry, state_moving_down_do   , NULL, NULL, NULL },
+    { state_moving_up_entry, state_moving_down_entry, NULL, NULL, NULL },
+    { state_moving_up_entry, state_moving_down_entry, NULL, NULL, NULL },
+    { state_moving_up_entry, state_moving_down_entry, NULL, NULL, NULL }
 };
 
 void elevator_controller_loop_once(const state_data_s* state_data) {
