@@ -3,6 +3,7 @@
 //
 #include <elevator_driver.h>
 #include "elev.h"
+#include "order_queue.h"
 
 motor_direction_e current_motor_direction = MOTOR_DIRECTION_UP;
 motor_running_e motor_running_status = MOTOR_NOT_RUNNING;
@@ -55,6 +56,7 @@ void update_elevator_driver(void) {
     for(int i = 0; i<4; i++) {
         if (elev_get_button_signal(BUTTON_COMMAND, i) == 1) {
             set_elevator_light(i);
+            add_to_order_queue_dest(i);
         }
     }
 
