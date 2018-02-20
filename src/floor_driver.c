@@ -1,5 +1,7 @@
 #include "floor_driver.h"
 #include "elev.h"
+#include "order_queue.h"
+
 int btn_light_state[2][4] = {
     { 0, 0, 0, 0},
     { 0, 0, 0, 0}
@@ -22,12 +24,14 @@ void update_floor_driver() {
         if(btn_up && !btn_light_state[BUTTON_CALL_UP][up_index]) {
             //Set light
             btn_light_state[BUTTON_CALL_UP][up_index] = 1;
-            //TODO Add to up queue
+            //Add to up queue
+            add_to_order_queue_up(up_index);
         }
         if(btn_down && !btn_light_state[BUTTON_CALL_DOWN][down_index]) {
             //Set light
             btn_light_state[BUTTON_CALL_DOWN][down_index] = 1;
-            //TODO Add to down queue
+            //Add to down queue
+            add_to_order_queue_down(down_index);
         }
     }
     
