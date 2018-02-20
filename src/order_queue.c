@@ -8,9 +8,9 @@ typedef enum {NO_ORDER = 0, ORDER = 1} has_order_e;
 
 #define NUM_FLOORS 4
 
-int orders_up[NUM_FLOORS] = { 0, 0, 0, 0};
-int orders_down[NUM_FLOORS] = { 0, 0, 0, 0};
-int orders_destination[NUM_FLOORS] = { 0, 0, 0, 0 };
+has_order_e orders_up[NUM_FLOORS] = { 0, 0, 0, 0};
+has_order_e orders_down[NUM_FLOORS] = { 0, 0, 0, 0};
+has_order_e orders_destination[NUM_FLOORS] = { 0, 0, 0, 0 };
 
 
 void add_to_order_queue_up(int floor) {
@@ -44,16 +44,30 @@ int get_next_order(int current_floor, motor_direction_e dir) {
     //Which direction to look
     int increment = (dir == MOTOR_DIRECTION_UP) ? 1 : -1;
     //Get pointer to active queue
-    int* queue = (dir == MOTOR_DIRECTION_UP) ? orders_up : orders_down;
+    has_order_e* queue = (dir == MOTOR_DIRECTION_UP) ? orders_up : orders_down;
     //Check current floor and up
-    for(int i = current_floor; i < NUM_FLOORS && i >= 0; i += increment) {
-        if(queue[i] == ORDER || orders_destination[i] == ORDER) return i;
+    int floor = current_floor;
+    //Look in multiple directions
+    for(int i = 0; i < 2; ++i) {
+        //Look for orders until end of list
+        for(; floor < NUM_FLOORS && floor >= 0; floor += increment) {
+            if(queue[floor] || orders_destination[floor]) {
+                return floor;
+            }
+        }
+        //Remove last increment
+        floor -= increment;
+        queue = (queue == orders_up) ? orders_down : orders_up;
+        //Reverse direction
+        increment *= -1;
     }
-    //Finn start index etter første iterasjon
-    //Finn retning og queue etter første iterasjon
-    //Itterer gjennom andre queue
-    //Snu retning, bytt queue og iterer gjennom første del av queue nummer 1
-    
+    //Loop through the remaining part of the queue
+    for(; floor != current_floor && floor >= 0 && floor < NUM_FLOORS; floor += increment) {
+        if(queue[floor] || orders_destination[floor]) {
+            printf("Second");
+            return floor;
+        }
+    }
     return -1;
 }
 void add_to_order_queue_dest(int floor) {
