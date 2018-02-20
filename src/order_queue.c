@@ -41,10 +41,11 @@ int get_next_order(int current_floor, motor_direction_e dir) {
         fprintf(stderr, "Invalid floor id %i", current_floor);
         return -1;
     }
-    int increment;
-    if(dir == MOTOR_DIRECTION_UP) increment = 1;
-    else if(dir == MOTOR_DIRECTION_DOWN) increment = -1;
+    //Which direction to look
+    int increment = (dir == MOTOR_DIRECTION_UP) ? 1 : -1;
+    //Get pointer to active queue
     int* queue = (dir == MOTOR_DIRECTION_UP) ? orders_up : orders_down;
+    //Check current floor and up
     for(int i = current_floor; i < NUM_FLOORS && i >= 0; i += increment) {
         if(queue[i] == ORDER || orders_destination[i] == ORDER) return i;
     }
