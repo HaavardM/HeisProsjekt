@@ -15,7 +15,7 @@ int orders_destination[NUM_FLOORS] = { 0, 0, 0, 0 };
 
 void add_to_order_queue_up(int floor) {
     if(floor < 0 || floor >= NUM_FLOORS) {
-        fprinf(stderr, "Invalid floor id %i", floor);
+        fprintf(stderr, "Invalid floor id %i", floor);
         return;
     }
     
@@ -38,13 +38,13 @@ void empty_queue(void) {
 
 int get_next_order(int current_floor, motor_direction_e dir) {
     if(current_floor < 0 || current_floor >= NUM_FLOORS) {
-        fprinf(stderr, "Invalid floor id %i", current_floor);
+        fprintf(stderr, "Invalid floor id %i", current_floor);
         return -1;
     }
     int increment;
     if(dir == MOTOR_DIRECTION_UP) increment = 1;
     else if(dir == MOTOR_DIRECTION_DOWN) increment = -1;
-    int queue[NUM_FLOORS] = (dir == MOTOR_DIRECTION_UP) ? orders_up : orders_down;
+    int* queue = (dir == MOTOR_DIRECTION_UP) ? orders_up : orders_down;
     for(int i = current_floor; i < NUM_FLOORS && i >= 0; i += increment) {
         if(queue[i] == ORDER || orders_destination[i] == ORDER) return i;
     }
