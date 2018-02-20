@@ -18,4 +18,6 @@ COPY ./install_dependencies.sh /
 WORKDIR /
 RUN /bin/bash install_dependencies.sh
 RUN rm install_dependencies.sh
+RUN ldconfig -v | grep -v ^$'\t'.
+
 
