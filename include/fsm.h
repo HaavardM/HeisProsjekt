@@ -11,7 +11,8 @@ typedef struct {
     motor_direction_e motor_direction;
     motor_running_e motor_running;
     const emergency_button_status_e emergency_button_status;
-    int target_floor; 
+    int target_floor;
+    int current_floor;
 } state_data_s;
 
 ///FSM state function pointer type
@@ -20,7 +21,12 @@ typedef fsm_state_e (* const fsm_state_func)(const state_data_s*);
 
 ///States
 /************************************/
+/// At floor
 fsm_state_e state_at_floor_entry(const state_data_s* state_data_p);
 fsm_state_e state_at_floor_do(const state_data_s* state_data_p);
+/// Moving UP:
+fsm_state_e state_moving_up_entry(const state_data_s* state_data);
+fsm_state_e state_moving_up_do(const state_data_s* state_data);
+
 
 #endif
