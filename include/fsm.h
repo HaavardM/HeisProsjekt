@@ -15,7 +15,7 @@ typedef struct {
 } state_data_s;
 
 ///FSM state function pointer type
-typedef fsm_state_e (* const fsm_state_func)(state_data_s*);
+typedef fsm_state_e (* const fsm_state_func)(const state_data_s*);
 
 
 #endif

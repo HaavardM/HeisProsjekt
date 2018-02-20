@@ -17,7 +17,7 @@ fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] =
     {}
 };
 
-void elevator_controller_loop_once(state_data_s* state_data) {
+void elevator_controller_loop_once(const state_data_s* state_data) {
     ///Get next state function
     fsm_state_func func = state_table[current_state][next_state];
     current_state = next_state;
