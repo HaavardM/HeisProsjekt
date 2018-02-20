@@ -18,4 +18,9 @@ typedef struct {
 typedef fsm_state_e (* const fsm_state_func)(const state_data_s*);
 
 
+///States
+/************************************/
+fsm_state_e state_at_floor_entry(const state_data_s* state_data_p);
+fsm_states_e state_at_floor_do(const state_data_s* state_data_p);
+
 #endif
