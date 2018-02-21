@@ -22,8 +22,8 @@ typedef fsm_state_e (* const fsm_state_func)(const state_data_t*);
 ///States
 /************************************/
 /// At floor
-fsm_state_e state_at_floor_entry(const state_data_s* state_data_p);
-fsm_state_e state_at_floor_do(const state_data_s* state_data_p);
+fsm_state_e state_at_floor_entry(const state_data_t* state_data_p);
+fsm_state_e state_at_floor_do(const state_data_t* state_data_p);
 
 /// State Moving UP:
 fsm_state_e state_moving_up_entry(const state_data_t* state_data);
