@@ -7,7 +7,7 @@
 void emergency_stop();
 
 ///Run current elevator state once
-void elevator_controller_loop_once(const state_data_s* state_data);
+void elevator_controller_loop_once(const state_data_t* state_data);
 
 
 #endif
