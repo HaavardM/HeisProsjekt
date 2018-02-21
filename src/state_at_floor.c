@@ -1,16 +1,21 @@
 #include "fsm.h"
 #include "elevator_driver.h"
 #include "door_driver.h"
+#include "timer_driver.h"
+#include <stdbool.h>
+
+timer_t current_timer;
 
 fsm_state_e state_at_floor_entry(const state_data_t* state_data_p) {
    stop_motor();
    open_door();
-   //TODO Start timer when ready
+   current_timer = create_timer(3 * 1000);
    return STATE_AT_FLOOR; 
 }   
 
 fsm_state_e state_at_floor_do(const state_data_t* state_data_p) {
-    int timer_elapsed = 0;
+    //Wait for timer
+    bool timer_elapsed = timer_has_elapsed(current_timer);
     if(timer_elapsed) {
         return STATE_EXECUTE_QUEUE;
     }
