@@ -10,7 +10,7 @@ fsm_state_e next_state;
 ///Contains all state functions and transition functions
 fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] = 
 {
-//        MOVING_UP                   MOVING_DOWN               EMERGENCY         EXECUTE_QUEUE      AT_FLOOR
+//        MOVING_UP                   MOVING_DOWN               EMERGENCY         EXECUTE_QUEUE             AT_FLOOR
     { state_moving_up_do   ,    state_moving_down_entry,          NULL,              NULL,             state_at_floor_entry }, //MOVING UP
     { state_moving_up_entry,    state_moving_down_do   ,          NULL,              NULL,             state_at_floor_entry }, //MOVING DOWN
     { state_moving_up_entry,    state_moving_down_entry,          NULL,              NULL,             state_at_floor_entry }, //EMERGENCY
