@@ -13,10 +13,10 @@ typedef struct {
     const emergency_button_status_e emergency_button_status;
     int target_floor;
     int current_floor;
-} state_data_s;
+} state_data_t;
 
 ///FSM state function pointer type
-typedef fsm_state_e (* const fsm_state_func)(const state_data_s*);
+typedef fsm_state_e (* const fsm_state_func)(const state_data_t*);
 
 
 ///States
@@ -26,10 +26,10 @@ fsm_state_e state_at_floor_entry(const state_data_s* state_data_p);
 fsm_state_e state_at_floor_do(const state_data_s* state_data_p);
 
 /// State Moving UP:
-fsm_state_e state_moving_up_entry(const state_data_s* state_data);
-fsm_state_e state_moving_up_do(const state_data_s* state_data);
+fsm_state_e state_moving_up_entry(const state_data_t* state_data);
+fsm_state_e state_moving_up_do(const state_data_t* state_data);
 
 /// State Moving DOWN:
-fsm_state_e state_moving_down_entry(const state_data_s* state_data);
-fsm_state_e state_moving_down_do(const state_data_s* state_data);
+fsm_state_e state_moving_down_entry(const state_data_t* state_data);
+fsm_state_e state_moving_down_do(const state_data_t* state_data);
 #endif
