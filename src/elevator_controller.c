@@ -10,12 +10,12 @@ fsm_state_e next_state;
 ///Contains all state functions and transition functions
 fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] = 
 {
-//        MOVING_UP          MOVING_DOWN      EMERGENCY         EXECUTE_QUEUE     AT_FLOOR
-    { state_moving_up_do   ,    NULL,          NULL,              NULL,             NULL }, //MOVING UP
-    { state_moving_up_entry,    NULL,          NULL,              NULL,             NULL }, //MOVING DOWN
-    { state_moving_up_entry,    NULL,          NULL,              NULL,             NULL }, //EMERGENCY
-    { state_moving_up_entry,    NULL,          NULL,              NULL,             NULL }, //EXECUTE_QUEUE
-    { state_moving_up_entry,    NULL,          NULL,              NULL,             NULL }  //AT FLOOR
+//        MOVING_UP                   MOVING_DOWN               EMERGENCY         EXECUTE_QUEUE      AT_FLOOR
+    { state_moving_up_do   ,    state_moving_down_entry,          NULL,              NULL,             NULL }, //MOVING UP
+    { state_moving_up_entry,    state_moving_down_do   ,          NULL,              NULL,             NULL }, //MOVING DOWN
+    { state_moving_up_entry,    state_moving_down_entry,          NULL,              NULL,             NULL }, //EMERGENCY
+    { state_moving_up_entry,    state_moving_down_entry,          NULL,              NULL,             NULL }, //EXECUTE_QUEUE
+    { state_moving_up_entry,    state_moving_down_entry,          NULL,              NULL,             NULL }  //AT FLOOR
 };
 
 void elevator_controller_loop_once(const state_data_t* state_data) {
