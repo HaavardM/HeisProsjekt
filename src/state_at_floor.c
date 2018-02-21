@@ -9,6 +9,7 @@ timer_t current_timer;
 fsm_state_e state_at_floor_entry(const state_data_t* state_data_p) {
    stop_motor();
    open_door();
+   //3 second timer
    current_timer = create_timer(3 * 1000);
    return STATE_AT_FLOOR; 
 }   
