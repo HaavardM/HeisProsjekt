@@ -10,7 +10,7 @@ fsm_state_e current_state = STATE_EXECUTE_QUEUE;
 ///Next desired state
 fsm_state_e next_state = STATE_EXECUTE_QUEUE;
 ///Last visited floor
-int last_floor = 0;
+int last_floor = -1;
 
 ///Contains all state functions and transition functions
 fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] = 
