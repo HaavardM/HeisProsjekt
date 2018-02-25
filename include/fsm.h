@@ -10,7 +10,7 @@ typedef struct {
     //Fill inn neccesary data here
     motor_direction_e motor_direction;
     motor_running_e motor_running;
-    const emergency_button_status_e emergency_button_status;
+    emergency_button_status_e emergency_button_status;
     int target_floor;
     int current_floor;
 } state_data_t;
