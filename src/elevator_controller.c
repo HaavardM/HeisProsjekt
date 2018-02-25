@@ -24,6 +24,10 @@ fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] =
 };
 
 void elevator_controller_loop_once() {
+    
+    update_floor_driver();
+    update_elevator_driver();
+
     state_data_t state_data;
     
     state_data.motor_direction = get_motor_direction();
