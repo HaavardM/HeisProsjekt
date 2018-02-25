@@ -1,6 +1,9 @@
 #include "elevator_controller.h"
 #include <stdio.h>
 #include "fsm.h"
+#include "elevator_driver.h"
+#include "floor_driver.h"
+#include "order_queue.h"
 
 ///Current running state
 fsm_state_e current_state;
@@ -20,8 +23,9 @@ fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] =
     { state_moving_up_entry,    state_moving_down_entry,          NULL,              NULL,             state_at_floor_do    }  //AT FLOOR
 };
 
-void elevator_controller_loop_once(const state_data_t* state_data) {
+void elevator_controller_loop_once() {
     state_data_t state_data;
+    
     state_data.motor_direction = get_motor_direction();
     state_data.motor_running = is_motor_running();
     state_data.emergency_button_status = is_emergency_button_pressed();
@@ -37,7 +41,7 @@ void elevator_controller_loop_once(const state_data_t* state_data) {
     current_state = next_state;
     if(func != NULL) {
         ///Run current state
-        next_state = func(state_data);
+        next_state = func(&state_data);
     }
 }
 
