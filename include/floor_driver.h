@@ -20,6 +20,8 @@ void update_floor_driver();
 /// @return current floor
 int get_current_floor(void);
 
+/// @param desired floor
+void set_floor_light(int floor);
 
 
 #endif
