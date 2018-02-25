@@ -33,9 +33,12 @@ void elevator_controller_loop_once() {
     if(state_data.current_floor != -1) {
         last_floor = state_data.current_floor;
         set_floor_light(last_floor);
+    } 
+    if(last_floor != -1) {
+        state_data.target_floor = get_next_order(last_floor, state_data.motor_direction);
+    } else {
+        state_data.target_floor = -1;
     }
-    state_data.target_floor = get_next_order(last_floor, state_data.motor_direction);
-
 
     ///Get next state function
     fsm_state_func func = state_table[current_state][next_state];
