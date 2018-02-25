@@ -33,6 +33,9 @@ void elevator_controller_loop_once() {
     state_data.motor_direction = get_motor_direction();
     state_data.motor_running = is_motor_running();
     state_data.emergency_button_status = is_emergency_button_pressed();
+    if(state_data.emergency_button_status && current_state != STATE_EMERGENCY) {
+        emergency_stop();
+    }
     state_data.current_floor = get_current_floor();
     if(state_data.current_floor != -1) {
         last_floor = state_data.current_floor;
