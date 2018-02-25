@@ -3,6 +3,7 @@
 #include "door_driver.h"
 #include "timer_driver.h"
 #include <stdbool.h>
+#include <stdio.h>
 
 timer_t current_timer;
 
