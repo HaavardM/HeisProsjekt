@@ -44,6 +44,7 @@ void update_floor_driver() {
         //Set light based on state
         elev_set_button_lamp(BUTTON_CALL_DOWN, down_index, btn_light_state[BUTTON_CALL_DOWN][down_index]);
     }
-
-
+}
+int get_current_floor(void) {
+    return elev_get_floor_sensor_signal();
 }
