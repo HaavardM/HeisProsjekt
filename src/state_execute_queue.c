@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 fsm_state_e state_execute_queue_do(const state_data_t* state_data_p) {
+    printf("State execute queue do\n");
     if(state_data_p->last_floor == -1) {
         return STATE_MOVING_UP;
     }
@@ -16,7 +17,7 @@ fsm_state_e state_execute_queue_do(const state_data_t* state_data_p) {
     } else if(state_data_p->target_floor < state_data_p->last_floor) {
         return STATE_MOVING_DOWN;
     } else {
-        fprintf(stderr, "Order to current floor?");
+        fprintf(stderr, "Order to current floor?\n");
         return STATE_AT_FLOOR;
     }
 }

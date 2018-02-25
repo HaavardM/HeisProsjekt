@@ -3,10 +3,12 @@
 //
 #include <fsm.h>
 #include "order_queue.h"
+#include <stdio.h>
 
 
 
 fsm_state_e state_emergency_entry(const state_data_t* state_data_p) {
+    printf("State emergency entry\n");
     stop_motor();
     empty_queue();
     return STATE_EMERGENCY;

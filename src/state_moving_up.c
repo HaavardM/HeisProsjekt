@@ -6,8 +6,10 @@
 #include "elevator_driver.h"
 #include "door_driver.h"
 #include "fsm.h"
+#include <stdio.h>
 
 fsm_state_e state_moving_up_entry(const state_data_t* state_data_p)  {
+    printf("State moving up entry\n");
     close_door();
     set_motor_direction(MOTOR_DIRECTION_UP);
     start_motor();
