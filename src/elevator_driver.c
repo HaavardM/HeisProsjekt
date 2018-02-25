@@ -8,13 +8,18 @@ motor_direction_e current_motor_direction = MOTOR_DIRECTION_UP;
 motor_running_e motor_running_status = MOTOR_NOT_RUNNING;
 
 void start_motor(void) {
-    elev_set_motor_direction(get_motor_direction());
     motor_running_status = MOTOR_RUNNING;
+    if (current_motor_direction == MOTOR_DIRECTION_UP) {
+        elev_set_motor_direction(DIRN_UP);
+    } else {
+        elev_set_motor_direction(DIRN_DOWN);
+    }
+
 }
 
 
 void stop_motor(void) {
-    elev_set_motor_direction(0);
+    elev_set_motor_direction(DIRN_STOP);
     motor_running_status = MOTOR_NOT_RUNNING;
 }
 
@@ -26,6 +31,11 @@ motor_direction_e get_motor_direction(void) {
 
 void set_motor_direction(motor_direction_e dir) {
     current_motor_direction = dir;
+    if (motor_running_status) {
+        start_motor();
+    }else {
+        stop_motor();
+    }
 }
 
 
