@@ -17,7 +17,7 @@ fsm_state_e state_moving_down_entry(const state_data_t* state_data_p)  {
 
 }
 fsm_state_e state_moving_down_do(const state_data_t* state_data_p) {
-    if (state_data_p ->current_floor == state_data_p ->target_floor) {
+    if (state_data_p ->current_floor == state_data_p ->target_floor && state_data_p->target_floor != -1) {
         return STATE_AT_FLOOR;
     } else if(state_data_p->last_floor == -1 && state_data_p->current_floor != -1) { 
         return STATE_AT_FLOOR;
