@@ -74,7 +74,7 @@ int get_next_order(int current_floor, motor_direction_e dir) {
 }
 
 void clear_order_in_queue(int floor) {
-    if(floor < NUM_FLOORS || floor >= NUM_FLOORS) {
+    if(floor < 0 || floor >= NUM_FLOORS) {
         fprintf(stderr, "Invalid floor\n");
         return;
     }

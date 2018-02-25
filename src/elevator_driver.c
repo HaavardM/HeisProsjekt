@@ -81,10 +81,10 @@ void set_elevator_light(int floor) {
 void update_elevator_driver(void) {
     for(int i = 0; i < NUM_FLOORS; i++) {
         if (elev_get_button_signal(BUTTON_COMMAND, i) == 1) {
-            set_elevator_light(i);
             if(!elevator_lights[i]) {
                 add_to_order_queue_dest(i);
             }
+            set_elevator_light(i);
         }
     }
 
