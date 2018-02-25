@@ -11,6 +11,9 @@
 
 fsm_state_e state_emergency_entry(const state_data_t* state_data_p) {
     printf("State emergency entry\n");
+    if(state_data_p->current_floor != -1) {
+        open_door();
+    }
     stop_motor();
     return STATE_EMERGENCY;
 }
