@@ -35,7 +35,8 @@ void empty_queue(void) {
         orders_down[i] = NO_ORDER;
         orders_up[i] = NO_ORDER;
         orders_destination[i] = NO_ORDER;
-    }
+    } 
+    printf("Clearing all orders\n");
 }
 
 int get_next_order(int current_floor, motor_direction_e dir) {
