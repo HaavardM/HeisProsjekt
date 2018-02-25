@@ -13,6 +13,7 @@ typedef struct {
     emergency_button_status_e emergency_button_status;
     int target_floor;
     int current_floor;
+    int last_floor;
 } state_data_t;
 
 ///FSM state function pointer type
@@ -32,4 +33,7 @@ fsm_state_e state_moving_up_do(const state_data_t* state_data);
 /// State Moving DOWN:
 fsm_state_e state_moving_down_entry(const state_data_t* state_data);
 fsm_state_e state_moving_down_do(const state_data_t* state_data);
+
+/// Stat execute queue
+fsm_state_e state_execute_queue_do(const state_data_t* state_data);
 #endif
