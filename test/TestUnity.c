@@ -41,6 +41,14 @@ void test_to_emergency_transitions(void) {
     TEST_ASSERT_EQUAL_INT(state_table[STATE_EXECUTE_QUEUE][STATE_EMERGENCY], state_emergency_entry);
 }
 
+void test_execute_queue_transitions(void) {
+    TEST_ASSERT_EQUAL_INT(state_table[STATE_EXECUTE_QUEUE][STATE_EXECUTE_QUEUE], state_execute_queue_do);
+    for(int i = 0; i < FSM_NUM_STATES; ++i) {
+        if(i == STATE_EXECUTE_QUEUE) continue;
+        TEST_ASSERT_EQUAL_INT(state_table[i][STATE_EXECUTE_QUEUE], NULL);
+    }
+}
+
 void test_order_queue(void) {
     add_to_order_queue_up(3);
     add_to_order_queue_down(1);
@@ -67,5 +75,6 @@ int main(int argc, char** argv) {
     RUN_TEST(test_to_moving_down_transitions);
     RUN_TEST(test_order_queue);
     RUN_TEST(test_to_emergency_transitions);
+    RUN_TEST(test_execute_queue_transitions);
     return UNITY_END();
 }
