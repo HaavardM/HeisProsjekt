@@ -27,12 +27,16 @@ fsm_state_e state_at_floor_entry(const state_data_t* state_data_p);
 fsm_state_e state_at_floor_do(const state_data_t* state_data_p);
 
 /// State Moving UP:
-fsm_state_e state_moving_up_entry(const state_data_t* state_data);
-fsm_state_e state_moving_up_do(const state_data_t* state_data);
+fsm_state_e state_moving_up_entry(const state_data_t* state_data_p);
+fsm_state_e state_moving_up_do(const state_data_t* state_data_p);
 
 /// State Moving DOWN:
-fsm_state_e state_moving_down_entry(const state_data_t* state_data);
-fsm_state_e state_moving_down_do(const state_data_t* state_data);
+fsm_state_e state_moving_down_entry(const state_data_t* state_data_p);
+fsm_state_e state_moving_down_do(const state_data_t* state_data_p);
+
+/// State Emergency
+fsm_state_e state_emergency_entry(const state_data_t* state_data_p);
+fsm_state_e state_emergency_do(const state_data_t* state_data_p);
 
 /// Stat execute queue
 fsm_state_e state_execute_queue_do(const state_data_t* state_data);
