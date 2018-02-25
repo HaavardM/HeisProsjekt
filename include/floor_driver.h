@@ -1,4 +1,4 @@
-#ifdef FLOOR_DRIVER_H
+#ifndef FLOOR_DRIVER_H
 #define FLOOR_DRIVER_H
 
 /** Check if elevator is at a floor
@@ -14,7 +14,12 @@ void clear_floor_light(int floor);
 /** Floor driver main function
  * 
  */
-void update_floor_driver()
+void update_floor_driver();
+
+
+/// @return current floor
+int get_current_floor(void);
+
 
 
 #endif
