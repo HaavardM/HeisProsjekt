@@ -2,6 +2,7 @@
 #include "unity.h"
 #include "elevator_controller_test.h"
 #include "fsm.h"
+#include "order_queue.h"
 
 
 void test_sampletest(void) {
@@ -32,6 +33,23 @@ void test_to_moving_down_transitions(void) {
     TEST_ASSERT_EQUAL_INT(state_table[STATE_MOVING_UP][STATE_MOVING_DOWN], state_moving_down_entry);
 }
 
+void test_order_queue(void) {
+    add_to_order_queue_up(3);
+    add_to_order_queue_down(1);
+    TEST_ASSERT_EQUAL_INT(3, get_next_order(2, MOTOR_DIRECTION_UP));
+    TEST_ASSERT_EQUAL_INT(1, get_next_order(2, MOTOR_DIRECTION_DOWN));
+    empty_queue();
+    TEST_ASSERT_EQUAL_INT(-1, get_next_order(2, MOTOR_DIRECTION_UP));
+    TEST_ASSERT_EQUAL_INT(-1, get_next_order(2, MOTOR_DIRECTION_DOWN));
+    add_to_order_queue_up(2);
+    add_to_order_queue_up(3);
+    TEST_ASSERT_EQUAL_INT(2, get_next_order(1, MOTOR_DIRECTION_UP));
+    TEST_ASSERT_EQUAL_INT(2, get_next_order(1, MOTOR_DIRECTION_DOWN));
+    empty_queue();
+    add_to_order_queue_up(1);
+    TEST_ASSERT_EQUAL_INT(1, get_next_order(2, MOTOR_DIRECTION_UP));
+}
+
 
 int main(int argc, char** argv) {
     UNITY_BEGIN();
@@ -39,5 +57,6 @@ int main(int argc, char** argv) {
     RUN_TEST(test_to_moving_up_transitions);
     RUN_TEST(test_to_state_at_floor);
     RUN_TEST(test_to_moving_down_transitions);
+    RUN_TEST(test_order_queue);
     return UNITY_END();
 }
