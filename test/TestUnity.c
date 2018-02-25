@@ -45,7 +45,7 @@ void test_execute_queue_transitions(void) {
     TEST_ASSERT_EQUAL_INT(state_table[STATE_EXECUTE_QUEUE][STATE_EXECUTE_QUEUE], state_execute_queue_do);
     for(int i = 0; i < FSM_NUM_STATES; ++i) {
         if(i == STATE_EXECUTE_QUEUE) continue;
-        TEST_ASSERT_EQUAL_INT(state_table[i][STATE_EXECUTE_QUEUE], NULL);
+        TEST_ASSERT_EQUAL_INT(state_table[i][STATE_EXECUTE_QUEUE], state_execute_queue_entry);
     }
 }
 

@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "floor_driver.h"
 #include "elevator_driver.h"
+#include "door_driver.h"
 
 #define NUM_FLOORS 4
 
