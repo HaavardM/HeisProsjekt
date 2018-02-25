@@ -32,6 +32,7 @@ void elevator_controller_loop_once() {
     state_data.current_floor = get_current_floor();
     if(state_data.current_floor != -1) {
         last_floor = state_data.current_floor;
+        set_floor_light(last_floor);
     }
     state_data.target_floor = get_next_order(last_floor, state_data.motor_direction);
 
