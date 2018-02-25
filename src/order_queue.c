@@ -67,7 +67,6 @@ int get_next_order(int current_floor, motor_direction_e dir) {
     //Loop through the remaining part of the queue
     for(; floor != current_floor && floor >= 0 && floor < NUM_FLOORS; floor += increment) {
         if(queue[floor] || orders_destination[floor]) {
-            printf("Second");
             return floor;
         }
     }
