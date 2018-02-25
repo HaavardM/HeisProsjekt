@@ -20,6 +20,7 @@ void add_to_order_queue_up(int floor) {
     }
     
     orders_up[floor] = ORDER;
+    printf("Floor %i added to up queue\n", floor);
 }
 void add_to_order_queue_down(int floor) {
     if(floor < 0 || floor >= NUM_FLOORS) {
@@ -27,6 +28,7 @@ void add_to_order_queue_down(int floor) {
         return;
     }
     orders_down[floor] = ORDER;
+    printf("Floor %i added to down queue\n", floor);
 }
 void empty_queue(void) {
     for(int i = 0; i < NUM_FLOORS; ++i) {
@@ -79,6 +81,7 @@ void clear_order_in_queue(int floor) {
     orders_up[floor] = NO_ORDER;
     orders_down[floor] = NO_ORDER;
     orders_destination[floor] = NO_ORDER;
+    printf("Clear order at floor %i\n", floor);
     
 }
 void add_to_order_queue_dest(int floor) {
@@ -87,4 +90,5 @@ void add_to_order_queue_dest(int floor) {
         return;
     }
     orders_destination[floor] = ORDER;
+    printf("Floor %i added to destination queue\n", floor);
 }
