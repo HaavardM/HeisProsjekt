@@ -2,8 +2,13 @@
 #include "order_queue.h"
 #include <stdio.h>
 
+
+fsm_state_e state_execute_queue_entry(const state_data_t* state_data_p) {
+    printf("State execute queue entry\n");
+    return STATE_EXECUTE_QUEUE;
+}
+
 fsm_state_e state_execute_queue_do(const state_data_t* state_data_p) {
-    printf("State execute queue do\n");
     if(state_data_p->last_floor == -1) {
         return STATE_MOVING_UP;
     }

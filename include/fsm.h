@@ -39,5 +39,6 @@ fsm_state_e state_emergency_entry(const state_data_t* state_data_p);
 fsm_state_e state_emergency_do(const state_data_t* state_data_p);
 
 /// Stat execute queue
-fsm_state_e state_execute_queue_do(const state_data_t* state_data);
+fsm_state_e state_execute_queue_entry(const state_data_t* state_data_p);
+fsm_state_e state_execute_queue_do(const state_data_t* state_data_p);
 #endif
