@@ -6,11 +6,11 @@
 #include "order_queue.h"
 
 ///Current running state
-fsm_state_e current_state;
+fsm_state_e current_state = STATE_EXECUTE_QUEUE;
 ///Next desired state
-fsm_state_e next_state;
+fsm_state_e next_state = STATE_EXECUTE_QUEUE;
 ///Last visited floor
-int last_floor = -1;
+int last_floor = 0;
 
 ///Contains all state functions and transition functions
 fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] = 
