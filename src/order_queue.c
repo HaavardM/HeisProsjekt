@@ -70,6 +70,17 @@ int get_next_order(int current_floor, motor_direction_e dir) {
     }
     return -1;
 }
+
+void clear_order_in_queue(int floor) {
+    if(floor < NUM_FLOORS || floor >= NUM_FLOORS) {
+        fprintf(stderr, "Invalid floor\n");
+        return;
+    }
+    orders_up[floor] = NO_ORDER;
+    orders_down[floor] = NO_ORDER;
+    orders_destination[floor] = NO_ORDER;
+    
+}
 void add_to_order_queue_dest(int floor) {
     if(floor < 0 || floor >= NUM_FLOORS) {
         fprintf(stderr, "Invalid floor id %i", floor);

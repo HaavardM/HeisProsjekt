@@ -1,9 +1,11 @@
 #include "fsm.h"
 #include "elevator_driver.h"
+#include "floor_driver.h"
 #include "door_driver.h"
 #include "timer_driver.h"
 #include <stdbool.h>
 #include <stdio.h>
+#include "order_queue.h"
 
 timer_t current_timer;
 
@@ -13,6 +15,8 @@ fsm_state_e state_at_floor_entry(const state_data_t* state_data_p) {
         fprintf(stderr, "Invalid floor\n");
     } else {
         clear_elevator_light(state_data_p->current_floor);
+        clear_floor_light(state_data_p->current_floor);
+        clear_order_in_queue(state_data_p->current_floor);
     }
     stop_motor();
     open_door();

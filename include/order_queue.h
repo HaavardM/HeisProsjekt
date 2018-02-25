@@ -12,6 +12,7 @@ void add_to_order_queue_down(int floor);
 void empty_queue(void);
 int get_next_order(int cuurent_floor, motor_direction_e dir);
 void add_to_order_queue_dest(int floor);
+void clear_order_in_queue(int floor);
 
 
 #endif //HEISPROSJEKT_ORDER_QUEUE_H

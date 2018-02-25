@@ -3,6 +3,13 @@
 //
 #include <elevator_driver.h>
 #include "elev.h"
+#include <stdbool.h>
+#include <stdio.h>
+#include "order_queue.h"
+
+#define NUM_FLOORS 4
+
+bool elevator_lights[NUM_FLOORS] = { false, false, false, false};
 
 motor_direction_e current_motor_direction = MOTOR_DIRECTION_UP;
 motor_running_e motor_running_status = MOTOR_NOT_RUNNING;
@@ -56,15 +63,28 @@ emergency_button_status_e is_emergency_button_pressed(void) {
 
 
 void clear_elevator_light(int floor) {
+    if(floor < 0 || floor >= NUM_FLOORS) {
+        fprintf(stderr, "Invalid floor\n");
+        return;
+    }
     elev_set_button_lamp(BUTTON_COMMAND, floor, 0);
+    elevator_lights[floor] = false;
 }
 void set_elevator_light(int floor) {
+    if(floor < 0 || floor >= NUM_FLOORS) {
+        fprintf(stderr, "Invalid floor\n");
+        return;
+    }
     elev_set_button_lamp(BUTTON_COMMAND, floor,1);
+    elevator_lights[floor] = true;
 }
 void update_elevator_driver(void) {
-    for(int i = 0; i<4; i++) {
+    for(int i = 0; i < NUM_FLOORS; i++) {
         if (elev_get_button_signal(BUTTON_COMMAND, i) == 1) {
             set_elevator_light(i);
+            if(!elevator_lights[i]) {
+                add_to_order_queue_dest(i);
+            }
         }
     }
 
