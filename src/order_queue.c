@@ -15,7 +15,7 @@ has_order_e orders_destination[NUM_FLOORS] = { 0, 0, 0, 0 };
 
 void add_to_order_queue_up(int floor) {
     if(floor < 0 || floor >= NUM_FLOORS) {
-        fprintf(stderr, "Invalid floor id %i", floor);
+        fprintf(stderr, "Invalid floor id %i\n", floor);
         return;
     }
     
@@ -23,7 +23,7 @@ void add_to_order_queue_up(int floor) {
 }
 void add_to_order_queue_down(int floor) {
     if(floor < 0 || floor >= NUM_FLOORS) {
-        fprintf(stderr, "Invalid floor id %i", floor);
+        fprintf(stderr, "Invalid floor id %i\n", floor);
         return;
     }
     orders_down[floor] = ORDER;
@@ -38,7 +38,7 @@ void empty_queue(void) {
 
 int get_next_order(int current_floor, motor_direction_e dir) {
     if(current_floor < 0 || current_floor >= NUM_FLOORS) {
-        fprintf(stderr, "Invalid floor id %i", current_floor);
+        fprintf(stderr, "Invalid floor id %i\n", current_floor);
         return -1;
     }
     //Which direction to look

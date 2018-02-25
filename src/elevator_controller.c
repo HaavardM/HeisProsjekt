@@ -6,9 +6,9 @@
 #include "order_queue.h"
 
 ///Current running state
-fsm_state_e current_state;
+fsm_state_e current_state = STATE_EXECUTE_QUEUE;
 ///Next desired state
-fsm_state_e next_state;
+fsm_state_e next_state = STATE_EXECUTE_QUEUE;
 ///Last visited floor
 int last_floor = -1;
 
@@ -24,6 +24,10 @@ fsm_state_func state_table[FSM_NUM_STATES][FSM_NUM_STATES] =
 };
 
 void elevator_controller_loop_once() {
+    
+    update_floor_driver();
+    update_elevator_driver();
+
     state_data_t state_data;
     
     state_data.motor_direction = get_motor_direction();
@@ -33,9 +37,12 @@ void elevator_controller_loop_once() {
     if(state_data.current_floor != -1) {
         last_floor = state_data.current_floor;
         set_floor_light(last_floor);
+    } 
+    if(last_floor != -1) {
+        state_data.target_floor = get_next_order(last_floor, state_data.motor_direction);
+    } else {
+        state_data.target_floor = -1;
     }
-    state_data.target_floor = get_next_order(last_floor, state_data.motor_direction);
-
 
     ///Get next state function
     fsm_state_func func = state_table[current_state][next_state];
