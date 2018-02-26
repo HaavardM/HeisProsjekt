@@ -57,3 +57,7 @@ build/
 cmake-build-debug
 .idea
 *.sublime-workspace
+
+#Doxygen folders
+html/
+latex/
