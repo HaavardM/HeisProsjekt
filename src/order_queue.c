@@ -82,7 +82,7 @@ int get_next_order(int current_floor, motor_direction_e dir) {
         }
     }
     //Return -1 if nothing found
-    return INVALID_VALUE;
+    return -1;
 }
 
 void clear_order_in_queue(int floor) {
