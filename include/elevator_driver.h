@@ -48,9 +48,9 @@ bool is_emergency_button_pressed(void);
  */
 void clear_elevator_light(int floor);
 
-/**
- * Updates the module
+/** Updates the module
+ * @param init_complete Init is completed
  */
-void update_elevator_driver(void);
+void update_elevator_driver(bool init_complete);
 
 #endif //HEISPROSJEKT_ELEVATOR_DRIVER_H
