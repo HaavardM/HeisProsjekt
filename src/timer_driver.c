@@ -1,6 +1,6 @@
 #include "timer_driver.h"
 
-timer_t create_timer(unsigned int d_ms) {
+timer_t create_ms_timer(unsigned int d_ms) {
     timer_t temp;
     temp.duration_ms = d_ms;
     temp.start_time = clock(); 
