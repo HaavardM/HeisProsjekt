@@ -1,6 +1,7 @@
 #ifndef FSM_H
 #define FSM_H
 #include "motor_defines.h"
+#include "stdbool.h"
 
 ///FSM states enum
 typedef enum {STATE_MOVING_UP, STATE_MOVING_DOWN, STATE_EMERGENCY, STATE_EXECUTE_QUEUE, STATE_AT_FLOOR, FSM_NUM_STATES} fsm_state_e;
@@ -10,7 +11,7 @@ typedef struct {
     //Fill inn neccesary data here
     motor_direction_e motor_direction;
     motor_running_e motor_running;
-    emergency_button_status_e emergency_button_status;
+    bool emergency_button_pressed;
     int target_floor;
     int current_floor;
     int last_floor;

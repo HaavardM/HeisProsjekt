@@ -25,10 +25,9 @@ fsm_state_e state_emergency_do(const state_data_t* state_data_p) {
         clear_elevator_light(i);
         clear_floor_light(i);
     }
-    if (state_data_p ->emergency_button_status == 1) {
+    if (state_data_p->emergency_button_pressed) {
         return STATE_EMERGENCY;
-    }
-    if (state_data_p->current_floor == -1) {
+    } else if (state_data_p->current_floor == -1) {
         return STATE_EXECUTE_QUEUE;
     }
     return STATE_AT_FLOOR;
