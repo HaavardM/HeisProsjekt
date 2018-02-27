@@ -14,7 +14,7 @@ typedef struct {
  * @param d_ms Timer duration in milliseconds
  * @return Timer struct
  */
-timer_t create_timer(unsigned int d_ms);
+timer_t create_ms_timer(unsigned int d_ms);
 /**Check if timer has elapsed
  * @param timer Timer to check
  * @return Has timer elapsed or not
