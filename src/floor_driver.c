@@ -12,7 +12,7 @@ void clear_floor_light(int floor) {
     btn_light_state[BUTTON_CALL_DOWN][floor] = 0;
 }
 
-void update_floor_driver() {
+void update_floor_driver(bool init_complete) {
     //Iteratre through each floor
     for(int i = 0; i < 3; ++i) {
         int up_index = i;
@@ -22,13 +22,13 @@ void update_floor_driver() {
         //Is button down pressed at floor i?
         bool btn_down = elev_get_button_signal(BUTTON_CALL_DOWN, down_index);
         //If button is pressed and light not already set
-        if(btn_up && !btn_light_state[BUTTON_CALL_UP][up_index]) {
+        if(btn_up && !btn_light_state[BUTTON_CALL_UP][up_index] && init_complete) {
             //Set light
             btn_light_state[BUTTON_CALL_UP][up_index] = true;
             //Add to up queue
             add_to_order_queue_up(up_index);
         }
-        if(btn_down && !btn_light_state[BUTTON_CALL_DOWN][down_index]) {
+        if(btn_down && !btn_light_state[BUTTON_CALL_DOWN][down_index] && init_complete) {
             //Set light
             btn_light_state[BUTTON_CALL_DOWN][down_index] = 1;
             //Add to down queue
@@ -48,6 +48,6 @@ void update_floor_driver() {
 int get_current_floor(void) {
     return elev_get_floor_sensor_signal();
 }
-void set_floor_light(int floor) {
+void set_floor_indicator(int floor) {
     elev_set_floor_indicator(floor);
 }

@@ -51,13 +51,13 @@ motor_running_e is_motor_running(void) {
 }
 
 
-emergency_button_status_e is_emergency_button_pressed(void) {
+bool is_emergency_button_pressed(void) {
     if (elev_get_stop_signal() == 0) {
         elev_set_stop_lamp(0);
-        return EMERGENCY_NOT_PRESSED;
+        return false;
     }else {
         elev_set_stop_lamp(1);
-        return EMERGENCY_PRESSED;
+        return true;
     }
 }
 
@@ -78,7 +78,9 @@ void set_elevator_light(int floor) {
     elev_set_button_lamp(BUTTON_COMMAND, floor,1);
     elevator_lights[floor] = true;
 }
-void update_elevator_driver(void) {
+void update_elevator_driver(bool init_complete) {
+    if(!init_complete) return;
+
     for(int i = 0; i < NUM_FLOORS; i++) {
         if (elev_get_button_signal(BUTTON_COMMAND, i) == 1) {
             if(!elevator_lights[i]) {
