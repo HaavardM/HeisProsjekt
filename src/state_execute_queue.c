@@ -1,11 +1,14 @@
 #include "fsm.h"
 #include "order_queue.h"
+#include "door_driver.h"
 #include <stdio.h>
 
 #define INVALID_VALUE -1
 
 fsm_state_e state_execute_queue_entry(const state_data_t* state_data_p) {
     printf("State execute queue entry\n");
+    //Close door when execute queue
+    close_door();
     return STATE_EXECUTE_QUEUE;
 }
 
