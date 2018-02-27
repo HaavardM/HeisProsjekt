@@ -1,6 +1,5 @@
 #include "elevator_controller.h"
 #include <stdio.h>
-#include "fsm.h"
 #include "elevator_driver.h"
 #include "floor_driver.h"
 #include "order_queue.h"

@@ -1,6 +1,6 @@
 #ifndef FSM_H
 #define FSM_H
-#include "elevator_driver.h"
+#include "motor_defines.h"
 
 ///FSM states enum
 typedef enum {STATE_MOVING_UP, STATE_MOVING_DOWN, STATE_EMERGENCY, STATE_EXECUTE_QUEUE, STATE_AT_FLOOR, FSM_NUM_STATES} fsm_state_e;
