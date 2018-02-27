@@ -40,7 +40,7 @@ void elevator_controller_loop_once() {
     state_data.current_floor = get_current_floor();
     if(state_data.current_floor != -1) {
         last_floor = state_data.current_floor;
-        set_floor_light(last_floor);
+        set_floor_indicator(last_floor);
     } 
     state_data.last_floor = last_floor;
     if(last_floor != -1) {
