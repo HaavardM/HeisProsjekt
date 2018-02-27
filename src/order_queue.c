@@ -23,20 +23,20 @@ bool valid_floor(int floor) {
 }
 
 void add_to_order_queue_up(int floor) {
-    if(!valid_floor(floor)) return; 
+    if(!valid_floor(floor) || orders_up[floor]) return; 
     
     orders_up[floor] = ORDER;
     printf("Floor %i added to up queue\n", floor);
 }
 void add_to_order_queue_down(int floor) {
-    if(!valid_floor(floor)) return;
+    if(!valid_floor(floor) || orders_down[floor]) return;
     
     orders_down[floor] = ORDER;
     printf("Floor %i added to down queue\n", floor);
 }
 
 void add_to_order_queue_dest(int floor) {
-    if(!valid_floor(floor)) return;
+    if(!valid_floor(floor) || orders_destination[floor]) return;
     
     orders_destination[floor] = ORDER;
     printf("Floor %i added to destination queue\n", floor);
