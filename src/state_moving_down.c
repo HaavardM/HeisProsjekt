@@ -10,7 +10,6 @@
 
 fsm_state_e state_moving_down_entry(const state_data_t* state_data_p)  {
     printf("State moving down entry\n");
-    close_door();
     set_motor_direction(MOTOR_DIRECTION_DOWN);
     start_motor();
     return STATE_MOVING_DOWN;
