@@ -48,6 +48,6 @@ void update_floor_driver() {
 int get_current_floor(void) {
     return elev_get_floor_sensor_signal();
 }
-void set_floor_light(int floor) {
+void set_floor_indicator(int floor) {
     elev_set_floor_indicator(floor);
 }

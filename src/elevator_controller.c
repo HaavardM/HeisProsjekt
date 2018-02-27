@@ -1,9 +1,10 @@
 #include "elevator_controller.h"
 #include <stdio.h>
-#include "fsm.h"
 #include "elevator_driver.h"
 #include "floor_driver.h"
 #include "order_queue.h"
+
+void emergency_stop(void);
 
 ///Current running state
 fsm_state_e current_state = STATE_EXECUTE_QUEUE;
@@ -32,14 +33,14 @@ void elevator_controller_loop_once() {
     
     state_data.motor_direction = get_motor_direction();
     state_data.motor_running = is_motor_running();
-    state_data.emergency_button_status = is_emergency_button_pressed();
-    if(state_data.emergency_button_status && current_state != STATE_EMERGENCY) {
+    state_data.emergency_button_pressed = is_emergency_button_pressed();
+    if(state_data.emergency_button_pressed && current_state != STATE_EMERGENCY) {
         emergency_stop();
     }
     state_data.current_floor = get_current_floor();
     if(state_data.current_floor != -1) {
         last_floor = state_data.current_floor;
-        set_floor_light(last_floor);
+        set_floor_indicator(last_floor);
     } 
     state_data.last_floor = last_floor;
     if(last_floor != -1) {

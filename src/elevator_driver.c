@@ -51,13 +51,13 @@ motor_running_e is_motor_running(void) {
 }
 
 
-emergency_button_status_e is_emergency_button_pressed(void) {
+bool is_emergency_button_pressed(void) {
     if (elev_get_stop_signal() == 0) {
         elev_set_stop_lamp(0);
-        return EMERGENCY_NOT_PRESSED;
+        return false;
     }else {
         elev_set_stop_lamp(1);
-        return EMERGENCY_PRESSED;
+        return true;
     }
 }
 
