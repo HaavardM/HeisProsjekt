@@ -78,7 +78,9 @@ void set_elevator_light(int floor) {
     elev_set_button_lamp(BUTTON_COMMAND, floor,1);
     elevator_lights[floor] = true;
 }
-void update_elevator_driver(void) {
+void update_elevator_driver(bool init_complete) {
+    if(!init_complete) return;
+
     for(int i = 0; i < NUM_FLOORS; i++) {
         if (elev_get_button_signal(BUTTON_COMMAND, i) == 1) {
             if(!elevator_lights[i]) {
