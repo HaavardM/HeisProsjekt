@@ -5,6 +5,15 @@
 #include "order_queue.h"
 #include <stdbool.h>
 
+//States
+/****************************/
+#include "state_emergency.h"
+#include "state_moving_up.h"
+#include "state_moving_down.h"
+#include "state_execute_queue.h"
+#include "state_at_floor.h"
+
+
 void emergency_stop(void);
 
 ///Current running state
