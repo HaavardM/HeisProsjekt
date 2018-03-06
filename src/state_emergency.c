@@ -6,6 +6,7 @@
 #include "door_driver.h"
 
 #define NUM_FLOORS 4
+#define INVALID_FLOOR -1
 
 fsm_state_e state_emergency_entry(const state_data_t* state_data_p) {
     printf("State emergency entry\n");
@@ -22,7 +23,7 @@ fsm_state_e state_emergency_do(const state_data_t* state_data_p) {
         clear_floor_light(i);
     }
     //If we're at a floor, open the doors
-    if(state_data_p->current_floor != -1) {
+    if(state_data_p->current_floor != INVALID_FLOOR) {
         open_door();
     } else {
         //If not, close
@@ -31,7 +32,7 @@ fsm_state_e state_emergency_do(const state_data_t* state_data_p) {
     
     if (state_data_p->emergency_button_pressed) {
         return STATE_EMERGENCY;
-    } else if (state_data_p->current_floor == -1) {
+    } else if (state_data_p->current_floor == INVALID_FLOOR) {
         return STATE_EXECUTE_QUEUE;
     }
     return STATE_AT_FLOOR;
