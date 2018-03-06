@@ -3,6 +3,11 @@
 #include "elevator_controller_test.h"
 #include "fsm.h"
 #include "order_queue.h"
+#include "state_emergency.h"
+#include "state_moving_up.h"
+#include "state_moving_down.h"
+#include "state_execute_queue.h"
+#include "state_at_floor.h"
 
 
 void test_sampletest(void) {
