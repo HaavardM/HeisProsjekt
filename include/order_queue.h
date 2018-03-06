@@ -1,7 +1,3 @@
-//
-// Created by Emma Horn Buøen on 20.02.2018.
-//
-
 #ifndef HEISPROSJEKT_ORDER_QUEUE_H
 #define HEISPROSJEKT_ORDER_QUEUE_H
 #include "motor_defines.h"

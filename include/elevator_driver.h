@@ -1,7 +1,3 @@
-//
-// Created by Emma Horn Buøen on 13.02.2018.
-//
-
 #ifndef HEISPROSJEKT_ELEVATOR_DRIVER_H
 #define HEISPROSJEKT_ELEVATOR_DRIVER_H
 #include "motor_defines.h"

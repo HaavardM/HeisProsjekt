@@ -1,6 +1,3 @@
-//
-// Created by Emma Horn Buøen on 13.02.2018.
-//
 #include <elevator_driver.h>
 #include "elev.h"
 #include <stdbool.h>
