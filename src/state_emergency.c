@@ -1,6 +1,3 @@
-//
-// Created by Emma Horn Buøen on 25.02.2018.
-//
 #include <fsm.h>
 #include "order_queue.h"
 #include <stdio.h>

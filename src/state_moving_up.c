@@ -1,7 +1,3 @@
-//
-// Created by Emma Horn Buøen on 20.02.2018.
-//
-
 #include <fsm.h>
 #include "elevator_driver.h"
 #include "door_driver.h"

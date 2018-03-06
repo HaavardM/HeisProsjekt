@@ -1,7 +1,3 @@
-//
-// Created by Emma Horn Buøen on 13.02.2018.
-//
-
 #include <door_driver.h>
 #include "elev.h"
 

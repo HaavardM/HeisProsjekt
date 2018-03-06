@@ -1,6 +1,3 @@
-//
-// Created by Emma Horn Buøen on 20.02.2018.
-//
 #include "order_queue.h"
 #include <stdio.h>
 #include <stdbool.h>
