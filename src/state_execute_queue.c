@@ -28,7 +28,6 @@ fsm_state_e state_execute_queue_do(const state_data_t* state_data_p) {
         return STATE_MOVING_DOWN;
     } else if(state_data_p->current_floor ==  state_data_p->last_floor) {
         //We're at the target floor
-        fprintf(stderr, "Order to current floor?\n");
         return STATE_AT_FLOOR;
     } else if(state_data_p->current_floor == INVALID_VALUE) {
         //We're in between floors (due to anomaly or emergency)
