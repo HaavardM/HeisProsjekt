@@ -12,8 +12,8 @@ void open_door(void);
 void close_door(void);
 
 /**Checks if door is open
- * @return 1 if door is open
- * @return 0 if door is closed
+ * @return DOOR_OPEN if door is open
+ * @return DOOR_CLOSED if door is closed
  */
 door_state_e is_door_open(void);
 
