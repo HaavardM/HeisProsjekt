@@ -55,7 +55,7 @@ int get_next_order(int current_floor, motor_direction_e dir) {
     int increment = (dir == MOTOR_DIRECTION_UP) ? 1 : -1;
     //Get pointer to active queue
     has_order_e* queue = (dir == MOTOR_DIRECTION_UP) ? orders_up : orders_down;
-    //Check current floor and up
+    //Start on current floor
     int floor = current_floor;
     //Look in multiple directions
     for(int i = 0; i < 2; ++i) {
@@ -65,7 +65,7 @@ int get_next_order(int current_floor, motor_direction_e dir) {
                 return floor;
             }
         }
-        //Remove last increment
+        //Remove last increment (floor must be a valid floor)
         floor -= increment;
         //Switch queue
         queue = (queue == orders_up) ? orders_down : orders_up;
